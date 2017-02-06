@@ -164,9 +164,6 @@ func (t *HumanityCoinsChaincode) AddCoins(stub shim.ChaincodeStubInterface, args
 	
 	account_balance += amount_to_add
 	
-	
-	return nil, errors.New("Add coins ... " + strconv.Itoa(amount_to_add) + ", "  + strconv.Itoa(account_balance))
-	
 	err = stub.PutState(account_name, IntToDBValue(account_balance)) 
 	if err != nil { return nil, err }
 	

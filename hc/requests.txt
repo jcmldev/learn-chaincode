@@ -17,7 +17,7 @@
  }
 
 
-f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744924dd60ab6b4b22f1f5b88e27dd6e2084f207688f02e410a
+4eb69d96f6eb4722c4ad703c0583fe847709052d46819eb1d84760fef96f3ba4d9ad0873edbf7a2247cd6979920b4c0c327b76809850282a1a82836a7e69f730
 
 
 
@@ -27,7 +27,7 @@ f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744
      "params": {
          "type": 1,
          "chaincodeID": {
-             "name": "f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744924dd60ab6b4b22f1f5b88e27dd6e2084f207688f02e410a"
+             "name": "4eb69d96f6eb4722c4ad703c0583fe847709052d46819eb1d84760fef96f3ba4d9ad0873edbf7a2247cd6979920b4c0c327b76809850282a1a82836a7e69f730"
          },
          "ctorMsg": {
              "function": "account_balance",
@@ -47,7 +47,7 @@ f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744
      "params": {
          "type": 1,
          "chaincodeID": {
-             "name": "f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744924dd60ab6b4b22f1f5b88e27dd6e2084f207688f02e410a"
+             "name": "4eb69d96f6eb4722c4ad703c0583fe847709052d46819eb1d84760fef96f3ba4d9ad0873edbf7a2247cd6979920b4c0c327b76809850282a1a82836a7e69f730"
          },
          "ctorMsg": {
              "function": "account_balance",
@@ -66,7 +66,7 @@ f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744
      "params": {
          "type": 1,
          "chaincodeID": {
-             "name": "f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744924dd60ab6b4b22f1f5b88e27dd6e2084f207688f02e410a"
+             "name": "4eb69d96f6eb4722c4ad703c0583fe847709052d46819eb1d84760fef96f3ba4d9ad0873edbf7a2247cd6979920b4c0c327b76809850282a1a82836a7e69f730"
          },
          "ctorMsg": {
              "function": "open_account",
@@ -86,7 +86,7 @@ f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744
      "params": {
          "type": 1,
          "chaincodeID": {
-             "name": "f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744924dd60ab6b4b22f1f5b88e27dd6e2084f207688f02e410a"
+             "name": "4eb69d96f6eb4722c4ad703c0583fe847709052d46819eb1d84760fef96f3ba4d9ad0873edbf7a2247cd6979920b4c0c327b76809850282a1a82836a7e69f730"
          },
          "ctorMsg": {
              "function": "add_coins",
@@ -108,7 +108,7 @@ f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744
      "params": {
          "type": 1,
          "chaincodeID": {
-             "name": "f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744924dd60ab6b4b22f1f5b88e27dd6e2084f207688f02e410a"
+             "name": "4eb69d96f6eb4722c4ad703c0583fe847709052d46819eb1d84760fef96f3ba4d9ad0873edbf7a2247cd6979920b4c0c327b76809850282a1a82836a7e69f730"
          },
          "ctorMsg": {
              "function": "transfer_coins",
@@ -122,4 +122,27 @@ f051a645c24a47d513e2092d7c8adb5befa97e336b8a4f1ca7be622c1fc037010572bdf1ab7d2744
      },
      "id": 4
  }
+ 
+ 
+ 
+ 
+   {
+     "jsonrpc": "2.0",
+     "method": "invoke",
+     "params": {
+         "type": 1,
+         "chaincodeID": {
+             "name": "4eb69d96f6eb4722c4ad703c0583fe847709052d46819eb1d84760fef96f3ba4d9ad0873edbf7a2247cd6979920b4c0c327b76809850282a1a82836a7e69f730"
+         },
+         "ctorMsg": {
+             "function": "close_account",
+             "args": [
+                 "test2"
+             ]
+         },
+         "secureContext": "user_type1_1"
+     },
+     "id": 4
+ }
+ 
  

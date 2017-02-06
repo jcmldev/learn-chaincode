@@ -1,0 +1,42 @@
+
+ {
+     "jsonrpc": "2.0",
+     "method": "deploy",
+     "params": {
+         "type": 1,
+         "chaincodeID": {
+             "path": "https://github.com/jcmldev/learn-chaincode/hc"
+         },
+         "ctorMsg": {
+             "function": "init",
+             "args": []
+         },
+         "secureContext": "user_type1_1"
+     },
+     "id": 1
+ }
+
+7aef6ab2dbcebcd2db3abde0bec4f41688828b66b0fece7655fda5a74e602533b49a3fe09a2f340ce36aed0ef1d7916356fa627ad32cea1c61252a41982a9ca5
+
+
+
+
+
+ {
+     "jsonrpc": "2.0",
+     "method": "query",
+     "params": {
+         "type": 1,
+         "chaincodeID": {
+             "name": "7aef6ab2dbcebcd2db3abde0bec4f41688828b66b0fece7655fda5a74e602533b49a3fe09a2f340ce36aed0ef1d7916356fa627ad32cea1c61252a41982a9ca5"
+         },
+         "ctorMsg": {
+             "function": "account_balance",
+             "args": [
+                 "master_account"
+             ]
+         },
+         "secureContext": "user_type1_1"
+     },
+     "id": 2
+ }

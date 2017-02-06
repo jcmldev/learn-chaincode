@@ -72,10 +72,13 @@ func DBValueToInt(value []byte) (int, error) {
 
 
 func (t *HumanityCoinsChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
-
+	fmt.Println("Init is running")
+	
+	/*
 	if len(args) >= 0 {
 		return nil, errors.New("Incorrect number of arguments. Expecting 0")
 	}
+	*/
 
 	err := stub.PutState(ACCOUNT_MASTER_NAME, IntToDBValue(0))
 	if err != nil { return nil, err }
@@ -85,7 +88,7 @@ func (t *HumanityCoinsChaincode) Init(stub shim.ChaincodeStubInterface, function
 
 
 func (t *HumanityCoinsChaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
-	fmt.Println("invoke is running " + function)
+	fmt.Println("invoke is running function: " + function)
 
 	if function == "init" {													
 		return t.Init(stub, "", args)

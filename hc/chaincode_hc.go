@@ -241,7 +241,7 @@ func (t *HumanityCoinsChaincode) CloseAccount(stub shim.ChaincodeStubInterface, 
 	
 	t.TransferCoins(stub, []string{account_name, ACCOUNT_MASTER_NAME, strconv.Itoa(account_balance)})
 	
-	err = stub.PutState(account_name, IntToDBValue(ACCOUNT_DEFAULT_BALANCE)) 
+	err = stub.DelState(account_name) 
 	if err != nil { return nil, err }
 	
 	return nil, nil

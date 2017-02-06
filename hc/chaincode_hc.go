@@ -63,7 +63,7 @@ func main() {
 
 
 func IntToDBValue(value int) ([]byte) {
-	return []byte(strconv.Itoa(0))
+	return []byte(strconv.Itoa(value))
 }
 
 func DBValueToInt(value []byte) (int, error) {
@@ -133,7 +133,7 @@ func (t *HumanityCoinsChaincode) OpenAccount(stub shim.ChaincodeStubInterface, a
 
 	account_name = args[0]
 	
-	err = stub.PutState(account_name, []byte(strconv.Itoa(ACCOUNT_DEFAULT_BALANCE))) 
+	err = stub.PutState(account_name, IntToDBValue(ACCOUNT_DEFAULT_BALANCE))
 	if err != nil { return nil, err }
 	
 	return nil, nil

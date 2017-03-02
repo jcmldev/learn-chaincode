@@ -54,6 +54,8 @@ func (t *PharmaAuthDB) Invoke(stub shim.ChaincodeStubInterface, function string,
 		return t.Init(stub, "", args)
 	} else if function == "create_record" {										
 		return t.CreateRecord(stub, args)
+	} else if function == "create_record2" {										
+		return t.CreateRecord2(stub, args)
 	}
 
 	fmt.Println("invoke did not find func: " + function)
@@ -65,6 +67,8 @@ func (t *PharmaAuthDB) Query(stub shim.ChaincodeStubInterface, function string, 
 	fmt.Println("query is running " + function)
 
 	if function == "get_record" {
+		return t.GetRecord(stub, args)
+	} else if function == "get_record2" {										
 		return t.GetRecord(stub, args)
 	}
 	

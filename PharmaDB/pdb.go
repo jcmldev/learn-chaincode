@@ -21,12 +21,19 @@ import (
 	"fmt"
 //	"strconv"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
+	"encoding/json"
 )
 
 /*
 Pharmaceutical database for validation of authenticity of sold drugs
 */
 
+type DrugRecord struct {
+	//TestDataElement 	`json:"-"`
+	Name   				string 	`json:"name"`
+	SerialNumber 		string 	`json:"serialNumber"`
+	Image 				string 	`json:"image"`
+}
 
 
 type PharmaAuthDB struct {
@@ -92,8 +99,32 @@ func (t *PharmaAuthDB) CreateRecord(stub shim.ChaincodeStubInterface, args []str
 	return nil, nil
 }
 
-func (t *PharmaAuthDB) GetRecord(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+func (t *PharmaAuthDB) CreateRecord2(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	fmt.Println("running CreateRecord()")
+
+	var drug_record 		DrugRecord
+	var drug_record_bytes 	[]byte
+	var err 				error
+
+	if len(args) != 3 {
+		return nil, errors.New("Incorrect number of arguments. Expecting 3.")
+	}
+
+	drug_record.Name = args[0]
+	drug_record.SerialNumber = args[1]
+	drug_record.Image = args[2]
+	
+	drug_record_bytes, err = json.Marshal(drug_record)
+	if err != nil { return nil, err }
+	
+	err = stub.PutState(drug_record.Name, drug_record_bytes)
+	if err != nil { return nil, err }
+	
+	return nil, nil
+}
+
+func (t *PharmaAuthDB) GetRecord(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	fmt.Println("running GetRecord()")
 
 	var drug_name string
 	var packaging_image []byte
@@ -112,3 +143,28 @@ func (t *PharmaAuthDB) GetRecord(stub shim.ChaincodeStubInterface, args []string
 	return packaging_image, nil
 }
 
+
+func (t *PharmaAuthDB) GetRecord2(stub shim.ChaincodeStubInterface, args []string) (interface{}, error) {
+	fmt.Println("running GetRecord()")
+
+	var drug_name 			string
+	var drug_record 		DrugRecord
+	var drug_record_bytes 	[]byte
+	var err 				error
+	
+
+	if len(args) != 1 {
+		return nil, errors.New("Incorrect number of arguments. Expecting 1.")
+	}
+	
+	drug_name = args[0]
+	
+	drug_record_bytes, err = stub.GetState(drug_name)
+	if err != nil { return nil, err }
+	
+	if err = json.Unmarshal(drug_record_bytes, &drug_record); err != nil {
+		return nil, errors.New("Cannot get drug record, reason: " + err.Error())
+	}
+	
+	return drug_record, nil
+}
